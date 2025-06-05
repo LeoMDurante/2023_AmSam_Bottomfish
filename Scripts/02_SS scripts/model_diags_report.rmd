@@ -13,6 +13,8 @@ params:
 ---
 
 ```{r setup, include=FALSE}
+#remotes::install_github("PIFSCstockassessments/ss3diags")
+
 knitr::opts_chunk$set(echo = FALSE)
 library(this.path)
 library(r4ss)

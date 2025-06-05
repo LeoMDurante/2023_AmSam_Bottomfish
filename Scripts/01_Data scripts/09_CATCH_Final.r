@@ -94,6 +94,8 @@ if(!exists(paste0(root_dir,"/Outputs/SS3_Inputs"))){
 
 write.csv(Z,paste0(root_dir,"/Outputs/SS3_Inputs/CATCH_Final.csv"),row.names=F)
 
+#LEO's edit because Z was not being saved directly
+write.csv(as.data.frame(Z), paste0(root_dir, "/Outputs/SS3_Inputs/CATCH_Final.csv"), row.names = FALSE)
 
 
 

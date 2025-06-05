@@ -20,8 +20,8 @@ for(i in 1:9){
 
 cl    <- makeCluster (9)
 #for(i in 1:length(Lt)){
-#lapply(list(Lt[[1]]),function(x)     { # Run a single model at a time
-parLapply(cl,Lt,function(x){ # Run all models in parallel
+lapply(list(Lt[[1]]),function(x)     { # Run a single model at a time
+#parLapply(cl,Lt,function(x){ # Run all models in parallel
   
   DirName    <- "199_Linf_Estimated" # Name of directory to create for this model run
   runmodels  <- T   # Turn off if you want to process results only

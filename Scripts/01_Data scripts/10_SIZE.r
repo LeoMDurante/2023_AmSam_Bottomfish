@@ -1,5 +1,10 @@
 # This script loads size data from the BBS, biosampling, and diver datasets and organizes them in a single table   
 
+#Added by Leo to clean uop the environment, as write.csv was not working properly with row.names = FALSE
+rm(list = ls())
+gc()
+
+
 require(data.table); require(openxlsx); require(tidyverse); require(openxlsx); require(gridExtra);require(grid); options(scipen=999)
 root_dir <- this.path::here(.. = 2) # establish directories using this.path
 dir.create(paste0(root_dir,"/Outputs/Summary/Size figures"),recursive=T,showWarnings=F)
@@ -262,6 +267,12 @@ for(i in 1:length(Species.List)){
  SizeData <- SizeData %>% group_by(SPECIES,DATASET,YEAR,EFFN,LENGTH_BIN_START) %>% summarize(N=sum(N))
  
  write.csv(SizeData,paste0(root_dir,"/Outputs/SS3_Inputs/SIZE_Final.csv"),row.names=F)
+ 
+ #LEO's edit because Z was not being saved directly
+ #SizeData <- SizeData %>% ungroup()
+ #SizeData_df <- as.data.frame(SizeData, stringsAsFactors = FALSE)
+ #write.csv(SizeData,paste0(root_dir,"/Outputs/SS3_Inputs/SIZE_Final.csv"),row.names=F)
+ 
  
 # Output a sample size summary (includes YEARs with < MinN)
 Summary <- rbindlist(NList)#do.call(rbind.data.frame, NList)
