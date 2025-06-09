@@ -105,7 +105,7 @@ Build_All_SS <- function(species,
                          jitterFraction = 0.1,
                          printreport = TRUE,
                          r4ssplots = TRUE,
-                         readGoogle = TRUE
+                         readGoogle = FALSE #Usually runs with TRUE
                          ){
   
   if(write_files){
